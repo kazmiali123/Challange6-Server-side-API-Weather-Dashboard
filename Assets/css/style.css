@@ -1,0 +1,48 @@
+.row{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#top-weather-box{
+    border: 1px solid;
+    border-radius: 10px;  
+    border-color: aliceblue; 
+}
+
+#search-box{    
+    border-bottom: 1px solid;
+    border-radius: 10px;    
+    border-color: aliceblue; 
+
+}
+
+#previous-box{
+    border-top: 1px solid;
+    border-radius: 10px;    
+    border-color: aliceblue; 
+    padding-top: 5px;     
+}
+
+#bottom-weather-box{
+    border: 1px solid;
+    border-radius: 10px;  
+    border-color: aliceblue;      
+}
+
+#whole-container{
+    background-image: linear-gradient(to left, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+}
+
+#map {
+    display: flex;
+    border-radius: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+    width: 890px;
+    height: 500px;
+}
+
+.table thead th{
+    border-bottom: none;
+    border-top: none;
+}
