@@ -102,6 +102,7 @@ const showFiveDayForecast = (lon, lat) => {
     });
 };
 
+// renders the display by calling display functions; address, map, today weather, and 5-day weather
 const renderDisplay = ({ lat, lon, name }) => {
   showAddress(lat, lon, name);
   showMap(lat, lon, name);
@@ -109,6 +110,7 @@ const renderDisplay = ({ lat, lon, name }) => {
   showFiveDayForecast(lon, lat);
 }
 
+// reads from local storage cities array, or passes an emply array if nothing found
 const readCitiesFromStorage = () => {
   let cities = localStorage.getItem('cities');
   if (cities) {
@@ -119,6 +121,7 @@ const readCitiesFromStorage = () => {
   return cities;
 }
 
+// saves an array named cities to the local storgae
 const saveCitiesToStorage = (cities) => {
   localStorage.setItem('cities', JSON.stringify(cities));
 }
@@ -140,6 +143,7 @@ const handleAddressSearch = (event) => {
         lat: data[0].lat
       }
 
+      // adds the city searched to the front of the cities array, keep the array length at 10 max
       let cities = readCitiesFromStorage();
       cities.unshift(newCity);
       cities = cities.slice(0, 10);
@@ -153,7 +157,7 @@ const handleAddressSearch = (event) => {
     .catch((err) => console.log(err));
 }
 
-
+// initial init function to start the page by calling renderDisplay and renderButtons functions
 const init = () => {
   let cities = readCitiesFromStorage();
 
@@ -167,7 +171,7 @@ const init = () => {
   return;
 }
 
-
+// renders the buttons based on the number of elements in the cities array
 const renderButtons = (cities) => {
   for (let i = 0; i < cities.length; i++) {
     let buttonElement = `<button type="button" class="btn btn-primary city-btn" data-index="${i}">${cities[i].name}</button>`;
@@ -175,9 +179,10 @@ const renderButtons = (cities) => {
   }
 }
 
-
+// button handler for the search btn
 $('#search-btn').on("click", handleAddressSearch);
 
+// button hander for button list, using event delegation to get the specific button that's clicked
 $('#button-list').on('click', '.city-btn', function (event) {
   event.preventDefault();
   let cityIndex = parseInt($(this).attr('data-index'));
@@ -190,5 +195,5 @@ $('#button-list').on('click', '.city-btn', function (event) {
   location.reload();
 });
 
-
+// function to run on script load
 init();
