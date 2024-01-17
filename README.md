@@ -29,6 +29,8 @@ https://leafletjs.com/reference.html
 
 ## Deployment
 
+Deployed URL: https://kazmiali123.github.io/Challange6-Server-side-API-Weather-Dashboard/
+
 GitHub Repository: https://github.com/kazmiali123/Challange6-Server-side-API-Weather-Dashboard.git
 
 ## Demo
